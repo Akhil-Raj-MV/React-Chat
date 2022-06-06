@@ -43,7 +43,7 @@ const SignIn=()=>{
 
                   <div className='mt-3'>
                     <Button block color='green' onClick={onGoogleSignIn}>
-                      <Icon icon='google'/>Continue with google
+                      <Icon icon='google'/>  continue with google
                     </Button>
                   </div>
               </Panel>
