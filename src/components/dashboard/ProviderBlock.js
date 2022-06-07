@@ -8,10 +8,7 @@ const ProviderBlock = () => {
 
   const [isConnected,setIsConnected]=useState({
       'google.com' : auth.currentUser.providerData.some
-                ((data)=> data.providerId==='google.com'),
-      'facebook.com':auth.currentUser.providerData.some(
-          (data)=>data.providerId==='facebook.com'
-      )
+                ((data)=> data.providerId==='google.com')
   })
 
   const updateIsConnected=(providerId,value)=>[
@@ -44,10 +41,7 @@ const ProviderBlock = () => {
   const unlinkGoogle=()=>{
         unlink('google.com')
   }
-  const unlinkFacebook=()=>{
-        unlink('facebook.com')
 
-  }
   const link=async (provider)=>{
         try {
             await auth.currentUser.linkWithPopup(provider)
@@ -63,9 +57,7 @@ const ProviderBlock = () => {
   const linkGoogle=()=>{
         link(new firebase.auth.GoogleAuthProvider())
   }
-  const linkFacebook=()=>{
-        link(new firebase.auth.FacebookAuthProvider())
-  }
+  
 
 
   return (
@@ -77,22 +69,11 @@ const ProviderBlock = () => {
         
         }
 
-        {isConnected["facebook.com"] && 
-                <Tag closable color='blue' onClose={unlinkFacebook}>
-                <Icon icon='facebook'/>Connected
-            </Tag>
-        
-        }
 
         <div className='mt-2'>
             {!isConnected["google.com"] && 
                 <Button block color='green' onClick={linkGoogle}>
                 <Icon icon='google'/> Link to Google
-                </Button>
-            }
-            {!isConnected["facebook.com"] && 
-                <Button block color='blue' onClick={linkFacebook}>
-                <Icon icon='facebook'/> Link to Facebook
                 </Button>
             }
             

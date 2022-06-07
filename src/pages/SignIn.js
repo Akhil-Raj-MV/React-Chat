@@ -29,9 +29,6 @@ const SignIn=()=>{
         signInWithProvider(new firebase.auth.GoogleAuthProvider())    
   }
 
-  const onFacebookSignIn=()=>{
-    signInWithProvider(new firebase.auth.FacebookAuthProvider())    
-}
 
   return (
     <Container>
@@ -45,9 +42,6 @@ const SignIn=()=>{
                   </div>
 
                   <div className='mt-3'>
-                    <Button block color='blue' onClick={onFacebookSignIn}>
-                      <Icon icon='facebook'/>  continue with Facebook
-                    </Button>
                     <Button block color='green' onClick={onGoogleSignIn}>
                       <Icon icon='google'/>  continue with google
                     </Button>
