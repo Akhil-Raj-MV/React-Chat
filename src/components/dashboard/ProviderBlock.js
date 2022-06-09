@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import firebase from 'firebase/app'
 import { Alert, Button, Icon, Tag} from 'rsuite'
