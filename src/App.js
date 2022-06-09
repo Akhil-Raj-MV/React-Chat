@@ -11,7 +11,7 @@ import { ProfileProvider } from './context/profile.context';
 
 function App() {
   return (
-    <div className="App">
+    <div className="h-100">
       <ProfileProvider>
           <Switch>
             <PublicRoute path="/signin">
