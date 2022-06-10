@@ -1,7 +1,7 @@
 import React,{useCallback, useState,useRef} from 'react'
 import {Alert, Button,ControlLabel,Form,FormControl,FormGroup,Icon, Modal, Schema} from 'rsuite'
 import firebase from 'firebase/app'
-import {database} from '../misc/firebase'
+import {database,auth} from '../misc/firebase'
 import {useModalState} from '../misc/custom.hook';
 
 
@@ -35,10 +35,14 @@ const onSubmit=async ()=>{
         return;
     }
     setIsLoading(true);
-    const newRoomData={
-        ...formValue,
-        createdAt:firebase.database.ServerValue.TIMESTAMP
-    }
+
+     const newRoomData = {
+      ...formValue,
+      createdAt: firebase.database.ServerValue.TIMESTAMP,
+      admins: {
+        [auth.currentUser.uid]: true,
+      },
+    };
 
     try {
         await database.ref('rooms').push(newRoomData);

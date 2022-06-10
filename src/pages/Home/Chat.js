@@ -6,6 +6,8 @@ import Top from '../../components/chat-window/top'
 import Bottom from '../../components/chat-window/bottom'
 import {useRooms} from '../../context/rooms.context'
 import { CurrentRoomProvider } from '../../context/current.room.context'
+import { transformToArr } from '../../misc/helpers'
+import { auth } from '../../misc/firebase'
 
 
 const Chat = () => {
@@ -25,28 +27,27 @@ const Chat = () => {
 
     const {name,description}=currentRoom;
 
+    const admins=transformToArr(currentRoom.admins);
+    const isAdmin=admins.includes(auth.currentUser.uid)
+
     const currentRoomData={
         name,
-        description
+        description,
+        admins,
+        isAdmin
     }
 
   return (
     <CurrentRoomProvider data={currentRoomData}>
-
         <div className='chat-top'>
             <Top/>
         </div>
-
         <div className='chat-middle'>
             <Messages/>
         </div>
-
         <div className='chat-bottom'>
             <Bottom/>
         </div>
-
-
-
     </CurrentRoomProvider>
   )
 }
