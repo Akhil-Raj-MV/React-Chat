@@ -1,6 +1,6 @@
 import React, { useState,useRef } from 'react'
 import {Alert, Button, Modal} from 'rsuite'
-import AvatarEditor from 'react-avatar-editor'
+// import AvatarEditor from 'react-avatar-editor'
 import {useModalState} from '../../misc/custom.hook'
 import { database, storage } from '../../misc/firebase';
 import {useProfile} from '../../context/profile.context'
@@ -29,6 +29,7 @@ const getBlob=(canvas)=>{
 const AvatarUploadBtn = () => {
 
     const {isOpen,open,close}=useModalState();
+    // eslint-disable-next-line no-unused-vars
     const [img,setImg]=useState(null);
     const [isLoading,setIsLoading]=useState(false);
     const AvatarEditorRef=useRef();
@@ -96,7 +97,7 @@ const AvatarUploadBtn = () => {
 
                 <Modal.Body>
                       <div  className='d-flex justify-content-center align-item-center h-100'>
-                      {img && 
+                      {/* {img && 
                        <AvatarEditor
                        ref={AvatarEditorRef}
                        image={img}
@@ -105,7 +106,7 @@ const AvatarUploadBtn = () => {
                        border={10}
                        borderRadius={100}
                        rotate={0}
-                     />}
+                     />} */}
                       </div>
                 </Modal.Body>
 
