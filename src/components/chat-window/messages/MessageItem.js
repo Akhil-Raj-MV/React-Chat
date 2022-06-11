@@ -34,7 +34,8 @@ const renderFileMessage = file => {
 };
 
 const MessageItem = ({ message,handleAdmin,handleLike,handleDelete }) => {
-  const { author,text,likes,likeCount,file } = message;
+  // eslint-disable-next-line no-unused-vars
+  const { author,text,likes,likeCount,file,createdAt } = message;
 
   const [selfRef,isHovered]=useHover();
   const isMobile= useMediaQuery(('max-width:992px'));
