@@ -6,8 +6,8 @@ import { auth } from '../../misc/firebase'
 const ProviderBlock = () => {
 
   const [isConnected,setIsConnected]=useState({
-      'google.com' : auth.currentUser.providerData.some
-                ((data)=> data.providerId==='google.com')
+    'google.com': auth.currentUser?.providerData?.some
+                (data=> data.providerId==='google.com')
   })
 
   const updateIsConnected=(providerId,value)=>[

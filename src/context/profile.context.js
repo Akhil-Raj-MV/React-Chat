@@ -55,11 +55,11 @@ export const ProfileProvider=({children})=>{
                     }
         
                     userStatusDatabaseRef
-                    .onDisconnect()
-                    .set(isOfflineForDatabase)
-                    .then(() => {
-                        userStatusDatabaseRef.set(isOnlineForDatabase);
-                    });
+                        .onDisconnect()
+                        .set(isOfflineForDatabase)
+                        .then(() => {
+                            userStatusDatabaseRef.set(isOnlineForDatabase);
+                        });
                 });
 
 
@@ -81,8 +81,7 @@ export const ProfileProvider=({children})=>{
         
         })
 
-        return(
-            ()=>{
+        return ()=>{
                 authUnsub();
                 
                 database.ref('.info/connected').off();
@@ -93,7 +92,7 @@ export const ProfileProvider=({children})=>{
                     userStatusDatabaseRef.off();
                   }
             }
-        )
+        
     },[])
 
     return(
